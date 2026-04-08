@@ -1509,6 +1509,12 @@ section{padding:120px 0}
 
 <script>
 // LANG
+const NAME_PLACEHOLDER={
+  ko:'홍길동/피코리코',
+  en:'Hong / CompanyName',
+  th:'ชื่อ / ชื่อบริษัท'
+};
+
 function updateSelectOptions(lang){
   const sel=document.getElementById('contact-type');
   if(!sel)return;
@@ -1518,6 +1524,9 @@ function updateSelectOptions(lang){
     if(txt)opt.textContent=txt;
   });
   if(saved)sel.value=saved;
+  /* 이름/회사명 placeholder 언어별 교체 */
+  const nameInput=document.getElementById('contact-name');
+  if(nameInput)nameInput.placeholder=NAME_PLACEHOLDER[lang]||NAME_PLACEHOLDER.ko;
 }
 
 function setLang(lang){
