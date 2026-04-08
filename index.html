@@ -166,13 +166,15 @@ body.lang-ko [data-lang="ko"],body.lang-en [data-lang="en"],body.lang-th [data-l
     0 0 60px rgba(61,220,132,.30),
     0 0 120px rgba(61,220,132,.12);
   animation:letter-rise .7s var(--ease-out) forwards;
+  animation-fill-mode: both;
+  transform: translateY(60px) translateZ(0);
+  backface-visibility: hidden;
   letter-spacing:-.01em;
 }
 /* JS가 등장 완료 후 추가 — text-shadow만 부드럽게 변화, opacity 건드리지 않음 */
 .hero-wordmark .letter.glow{
   will-change:text-shadow;
-  animation:letter-rise .7s var(--ease-out) forwards,
-             glow-pulse 6s ease-in-out infinite 0s;
+  animation: glow-pulse 6s ease-in-out infinite;
 }
 @keyframes letter-rise{
   from{opacity:0;transform:translateY(60px)}
